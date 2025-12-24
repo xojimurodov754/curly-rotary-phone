@@ -1,0 +1,201 @@
+:root {
+    --main: #ff4757;
+    --green: #2ed573;
+    --bg: #fff5f7;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    margin: 0;
+    padding-top: 70px;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo { font-size: 20px; font-weight: bold; color: var(--main); }
+
+.icon-group { display: flex; gap: 15px; }
+.icon-wrapper { position: relative; cursor: pointer; font-size: 22px; color: #333; }
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: var(--main);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    border: 1px solid white;
+}
+
+/* Grid va Kartalar */
+.container { max-width: 1200px; margin: auto; padding: 10px; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobil uchun 2 qator */
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+.card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: relative;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.card.highlight { border-color: var(--main); transform: scale(1.05); }
+
+.card img {
+    width: 100%;
+    aspect-ratio: 30 / 35;
+    object-fit: cover;
+    display: block;
+}
+
+.like-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ccc;
+    z-index: 5;
+}
+.like-btn.active { color: var(--main); }
+
+.info { padding: 8px; text-align: center; }
+.info h3 { font-size: 14px; margin: 5px 0; color: #444; }
+.price { color: var(--green); font-weight: bold; font-size: 13px; display: block; margin-bottom: 8px; }
+
+.btn-add {
+    width: 100%;
+    background: var(--main);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Panellar */
+.side-panel {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background: var(--white);
+    z-index: 2000;
+    transition: 0.4s;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.side-panel.open { right: 0; }
+
+.panel-head { display: flex; justify-content: space-between; align-items: center; }
+.items-list { flex-grow: 1; overflow-y: auto; margin-top: 15px; }
+
+.item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.item-row img { width: 45px; height: 45px; border-radius: 8px; object-fit: cover; }
+
+.btn-order {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #0088cc;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* Admin Panel */
+.admin-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #333;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.admin-panel {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 4000;
+    transition: 0.5s;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.admin-panel.open { left: 0; }
+
+.admin-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.btn-save {
+    width: 100%;
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}

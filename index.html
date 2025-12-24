@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feruza Gurman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🧁 Feruza Gurman</div>
+    <div class="icon-group">
+        <div class="icon-wrapper" onclick="togglePanel('likePanel')">
+            <i class="fa-solid fa-heart"></i>
+            <span id="like-count" class="badge">0</span>
+        </div>
+        <div class="icon-wrapper" onclick="togglePanel('cartPanel')">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span id="cart-count" class="badge">0</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div id="product-grid" class="grid"></div>
+</div>
+
+<div class="admin-btn" onclick="askAdmin()"><i class="fa-solid fa-gear"></i></div>
+
+<div class="side-panel" id="likePanel">
+    <div class="panel-head">
+        <h3>Sevimlilar ❤️</h3>
+        <i class="fa-solid fa-xmark" onclick="togglePanel('likePanel')"></i>
+    </div>
+    <div id="like-list" class="items-list"></div>
+</div>
+
+<div class="side-panel" id="cartPanel">
+    <div class="panel-head">
+        <h3>Savat 🛒</h3>
+        <i class="fa-solid fa-xmark" onclick="togglePanel('cartPanel')"></i>
+    </div>
+    <div id="cart-list" class="items-list"></div>
+    <div class="cart-footer">
+        <h4 id="total-price">Jami: 0 so'm</h4>
+        <a id="tg-link" href="#" target="_blank" class="btn-order">Buyurtmani yuborish</a>
+    </div>
+</div>
+
+<div class="admin-panel" id="adminPanel">
+    <button class="close-admin" onclick="closeAdmin()">&times;</button>
+    <h2>Admin Panel</h2>
+    <div class="admin-form">
+        <input type="text" id="p-name" placeholder="Mahsulot nomi">
+        <input type="number" id="p-price" placeholder="Narxi">
+        <input type="text" id="p-img" placeholder="Rasm URL linki">
+        <button onclick="saveNewProduct()" class="btn-save">Qo'shish</button>
+    </div>
+    <div id="admin-product-list"></div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
